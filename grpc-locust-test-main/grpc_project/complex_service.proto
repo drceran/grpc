@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package complex_service ;
+
+message DeviceData {
+  string id = 1 ;
+  Info info = 2;
+  repeated Equipment equipment = 3;
+  repeated Channel channelList = 4;
+  repeated Destination destinations = 5;
+  repeated ServiceGroup serviceGroups = 6;
+  repeated SourceEquipment sourceEquipment = 7;
+  repeated Device devices = 8;
+
+  message Info {
+    string checksum = 1;
+    uint32 device_count = 2;
+    uint32 source_count = 3;
+    uint32 service_group_count = 4;
+  }
+
+  message Device {
+    string vendor = 1;
+    string headend = 2;
+    repeated Channel channels = 3;
+
+    message Channel {
+      string tsid = 1;
+      string annex = 2;
+      string qam_name = 3;
+      string base_port = 4;
+      string frequency = 5;
+      string port_step = 6;
+      string power_key = 7;
+      string interleaver = 8;
+      string output_port = 9;
+      string base_program = 10;
+      string media_cipher = 11;
+      string channel_width = 12;
+      double max_bandwidth = 13;
+      string program_count = 14;
+      string service_state = 15;
+      string qam_group_name = 16;
+      string modulation_type = 17;
+    }
+  }
+
+  message Equipment {
+    // Add fields as necessary
+  }
+
+  message Channel {
+    // Add fields as necessary
+  }
+
+  message Destination {
+    // Add fields as necessary
+  }
+
+  message ServiceGroup {
+    // Add fields as necessary
+  }
+
+  message SourceEquipment {
+    // Add fields as necessary
+  }
+}
+
+
+service ComplexService {
+    // Defines the CheckBandwidth method that the server implements
+    rpc ComplexMethod(DeviceData) returns (DeviceData);
+  }

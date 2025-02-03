@@ -1,0 +1,8 @@
+locust             2.32.6
+logging            0.4.9.6
+MarkupSafe         3.0.2
+msgpack            1.1.0
+pip                24.3.1
+protobuf           5.29.3
+grpcio             1.69.0
+grpcio-tools       1.69.0
